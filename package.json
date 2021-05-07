@@ -15,6 +15,7 @@
     "serve": "^11.3.2",
     "web-vitals": "^1.1.1"
   },
+  "homepage": "https://johnforjc.github.io/react-tutorial/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

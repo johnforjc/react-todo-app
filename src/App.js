@@ -21,8 +21,8 @@ function App() {
   ]);
 
   const addTask = (task) => {
-    const id = Math.floor(Math.random() * 100000) + 1;
-    const newTask = { id, ...task };
+    const newId = Math.floor(Math.random() * 100000) + 1;
+    const newTask = { id: newId, ...task };
     setTasks([...tasks, newTask]);
   };
 

@@ -6,7 +6,7 @@ const Header = ({ title, toogleButton, showAddTask }) => {
     <header className="header">
       <h1>{title}</h1>
 
-      <Button btnText={`${showAddTask ? "Add" : "Close"}`} color={`${showAddTask ? "green" : "red"}`} onClick={() => toogleButton()} />
+      <Button btnText={`${!showAddTask ? "Add" : "Close"}`} color={`${!showAddTask ? "green" : "red"}`} onClick={() => toogleButton()} />
 
       {/* Inline CSS JSX
             <h1 style={{color : 'red'}}>{title}</h1> */}

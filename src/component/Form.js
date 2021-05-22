@@ -4,9 +4,16 @@ const Form = ({ addTask }) => {
   const [text, setText] = useState("");
   const [day, setDay] = useState("");
   const [reminder, setReminder] = useState(false);
+  const dateNow = new Date();
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    // Handle if input date was passed
+    if (new Date(day) < dateNow) {
+      alert("Your input date was passed");
+      return false;
+    }
 
     addTask({ text, day, reminder });
 
@@ -24,7 +31,7 @@ const Form = ({ addTask }) => {
       </div>
       <div className="form-control">
         <label htmlFor="day">Date of Task</label>
-        <input type="text" value={day} onChange={(e) => setDay(e.target.value)} />
+        <input type="date" value={day} onChange={(e) => setDay(e.target.value)} />
       </div>
       <div className="form-control-check">
         <label htmlFor="reminder">Set Reminder</label>

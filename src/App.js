@@ -1,24 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "./component/Form";
 import Header from "./component/Header";
 import Tasks from "./component/Tasks";
 
 function App() {
   const [showAddTask, setShowAddTask] = useState(false);
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      text: "Doctors Appointment",
-      day: "Feb 5th at 2:30pm",
-      reminder: true,
-    },
-    {
-      id: 2,
-      text: "Meeting at School",
-      day: "Feb 6th at 1:30pm",
-      reminder: true,
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    fetchLocalStorage();
+  }, []);
+
+  useEffect(() => {
+    const data = JSON.stringify(tasks);
+    localStorage.setItem("myTasks", data);
+  }, [tasks]);
+
+  const fetchLocalStorage = () => {
+    const data = localStorage.getItem("myTasks");
+    setTasks(JSON.parse(data));
+  };
 
   const addTask = (task) => {
     const newId = Math.floor(Math.random() * 100000) + 1;

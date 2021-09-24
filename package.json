@@ -15,7 +15,7 @@
     "serve": "^11.3.2",
     "web-vitals": "^1.1.1"
   },
-  "homepage": "https://johnforjc.github.io/react-tutorial/",
+  "homepage": "https://johnforjc.github.io/react-todo-app/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
